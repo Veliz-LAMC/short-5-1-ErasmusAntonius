@@ -9,7 +9,7 @@ html {
 body {
 	font-family: Arial, Helvetica, sans-serif;
     font-size: 100%;
-    width: 850px;
+    width: 800px;
     margin: 0 auto;
     border: 3px solid #931420;
     background-color: #fffded;
@@ -17,13 +17,18 @@ body {
 a:focus, a:hover {
 	font-style: italic;
 }
-
 /* the styles for the header */
 header {
 	padding: 1.5em 0 2em 0;
 	border-bottom: 3px solid #931420;
+		background-image: -moz-linear-gradient(
+	    30deg, #f6bb73 0%, #f6bb73 30%, white 50%, #f6bb73 80%, #f6bb73 100%);
+	background-image: -webkit-linear-gradient(
+	    30deg, #f6bb73 0%, #f6bb73 30%, white 50%, #f6bb73 80%, #f6bb73 100%);
+	background-image: -o-linear-gradient(
+	    30deg, #f6bb73 0%, #f6bb73 30%, white 50%, #f6bb73 80%, #f6bb73 100%);
 	background-image: linear-gradient(
-	    30deg, #f6bb73 0%, #fffded 30%, white 50%, #fffded 80%, #f6bb73 100%);
+	    30deg, #f6bb73 0%, #f6bb73 30%, white 50%, #f6bb73 80%, #f6bb73 100%);
 }
 header h2 {
 	font-size: 175%;
@@ -40,51 +45,56 @@ header img {
 .shadow {
 	text-shadow: 2px 2px 2px #800000;
 }
-
 /* the styles for the navigation menu */
-nav {
-	clear: both;
+#nav_menu ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
 }
-nav ul {
-	list-style: none;
-}
-nav ul li {
+#nav_menu ul li {
 	float: left;
 }
-nav ul li a {
-	text-align: center;
-	display: block;
-	width: 168px;
-	padding: 1em 0;
-	text-decoration: none;
-	background-color: #931420;
-	color: #fffded;
-	font-weight: bold;
-	border-right: 2px solid #fffded;
+#nav_menu ul li a {
+    display: block;
+    width: 160px;
+    text-align: center;
+    padding: 1em 0;
+    text-decoration: none;
+    background-color: #800000;
+    color: white;
+    font-weight: bold;
 }
-nav ul li a.lastitem {
-	width: 170px;
-	border-right: none;
-}
-nav ul li a.current {
+#nav_menu a.current {
 	color: yellow;
 }
-
-/* the styles for the main content */
-main {
-	clear: left;
+#nav_menu ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+}
+#nav_menu ul ul li {
+	float: none;
+}
+#nav_menu ul li:hover > ul {
+	display: block;
+}
+#nav_menu > ul::after {
+    content: "";
+    clear: both;
+    display: block;
 }
 
 /* the styles for the section */
 section {
-	width: 575px;
+	width: 525px;
 	float: right;
 	padding: 0 20px 20px 20px;
 }
 section h1 {
 	font-size: 150%;
 	padding: .5em 0 .25em 0;
-	margin: 0;               /* If you remove this, the margins in normalize.css will be applied. */
+	margin: 0;
 }
 section h2 {
 	color: #800000;
@@ -100,6 +110,7 @@ section blockquote {
 }
 section ul {
 	padding: 0 0 .25em 1.25em;
+	list-style-type: circle;
 }
 section li {
 	padding-bottom: .35em;
